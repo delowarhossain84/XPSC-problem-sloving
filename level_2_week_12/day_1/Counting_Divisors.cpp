@@ -6,23 +6,25 @@
 #define sp  " " 
 #define fastread() ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 using namespace std;
+
+int const n = 1e6+5;
+vector<int>v(n);
 void solve(){
- int n;cin>>n;
- ll cnt = 0;
- for(int i = 1;i*i<=n;i++){
-    if(n%i==0){
-        cout<<i<<sp;
-        if(i!=n/i) cout<< n/i<<sp;
+
+for(int i=1;i<=n;i++){
+    for(int j = i;j<=n;j+=i){
+        v[j]++;
     }
- }
- cout<<cnt<<nl;
+}
 }
 int main(){
    fastread();
 
+   solve();
 int t;cin>>t;
 while(t--){
-   solve();
+    int m;cin>>m;
+    cout<<v[m]<<nl;
 }
     return 0;
 }
